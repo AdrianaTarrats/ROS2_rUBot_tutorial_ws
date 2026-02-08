@@ -17,13 +17,15 @@ And the ROS2 reference sites:
 - https://docs.ros.org/
 - https://docs.ros.org/en/humble/
 
-ROS1 is close to finish and you can switch to ROS2
+ROS1 is at his end of life (EOL) and we have switched to ROS2 Humble. Each ROS2 version is maintained during 5 years. ROS2 Humble will be maintained up to may 2027.
+
 ![](./Images/01_ROS2_setup/01_ROS2_time.png)
 
-The main differences are:
+The main architecture and differences are:
+![](./Images/01_ROS2_setup/02_ROS1_ROS2.png)
 ![](./Images/01_ROS2_setup/03_ROS2_dif.png)
 
-ROS2 is a very good choice.
+ROS2 Humble now is a very good choice!.
 
 **The Origin of ROS**
 
@@ -58,7 +60,13 @@ Here's a basic overview: Picture from ROS Official documentation: https://docs.r
 
 ## **Setup a usefull working ROS environment**
 
-You can use the ROS environment developed by "The Construct" (https://app.theconstructsim.com/), enterprise working on ROS academia and development and located in Barcelona.
+To work properly in ROS environment, you can:
+- use the ROS environment developed by "The Construct" third party enterprise.
+- use the UB custom Docker-based ROS2 Humble environment
+
+### "The Construct" ROS environment
+
+Is recommended for fast and reliable use:
 - Open the link: https://app.theconstructsim.com/
 - Create a free user account
 - Select "myRosjects"
@@ -67,7 +75,13 @@ You can use the ROS environment developed by "The Construct" (https://app.thecon
 ![](./Images/01_ROS2_setup/06_Rosject.png)
 You will have 2GB Virtual machine with Ubuntu 22 and ROS2 Humble installed for free!!
 
-**Prepare your Workspace**
+### UB custom Docker-based ROS2 Humble environment
+
+We have designed a University of Barcelona custom Docker-based ROS 2 Humble environment to simplify student access to ROS 2 and ensure platform-independent workflows in robotics courses.
+
+The installation details are described on:
+
+## **Prepare your Workspace**
 
 When working in Laboratory groups, we suggest you:
 - One student plays the role of `Director`. This student makes a "Fork" of the Professor's github project.
