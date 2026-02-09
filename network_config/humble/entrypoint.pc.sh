@@ -5,8 +5,8 @@ set -e
 source /opt/ros/humble/setup.bash
 
 # Source workspace if present
-if [ -f /root/my_rUBot_mecanum/install/setup.bash ]; then
-  source /root/my_rUBot_mecanum/install/setup.bash
+if [ -f /root/ROS2_rUBot_tutorial_ws/install/setup.bash ]; then
+  source /root/ROS2_rUBot_tutorial_ws/install/setup.bash
 fi
 
 # DDS / ROS 2 networking (clear & explicit)
