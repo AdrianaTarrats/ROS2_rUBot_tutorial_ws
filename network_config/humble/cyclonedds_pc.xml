@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  cyclonedds_pc.xml (Teaching "final" - portable)
+  Key points:
+  - Do NOT hard-bind to a host interface name (wlp1s0/enp3s0/etc).
+    In Docker, the interface is typically eth0 and differs per machine.
+  - Keep MaxMessageSize increased for images/pointclouds/maps.
+  - If you use ROS_STATIC_PEERS + ROS_AUTOMATIC_DISCOVERY_RANGE=OFF,
+    multicast discovery is not needed; you can disable it to reduce noise.
+-->
 <CycloneDDS xmlns="https://cdds.io/config">
   <Domain id="any">
+    <!-- OPTIONAL: If you ever MUST force an interface, put it HERE (not inside <General>).
+    WARNING: This is NOT portable across hosts/containers.
+    Example for typical Docker container:
+    <Interfaces>
+      <NetworkInterface name="eth0"/>
+    </Interfaces>
+    -->
     <General>
-      <!--
-        Let CycloneDDS automatically select the best available local interface.
-        This works on:
-          - Docker containers (eth0, 172.x.x.x)
-          - PCs with WiFi/Ethernet
-          - Laptops switching networks
-      -->
-      <Interfaces>
-        <NetworkInterface name="wlp1s0"/>
-      </Interfaces>
-      <!--
-        Increase max message size for point clouds, images, maps, etc.
-        (Default is often too small for robotics)
-      -->
+      <!-- Robust for big ROS messages (PointCloud2, images, maps) -->
       <MaxMessageSize>65500B</MaxMessageSize>
-      <!--
-        Avoid DDS traffic on localhost-only when networking is enabled
-        (safe default)
-      -->
+      <!-- Lab: connection with rUBot. With static peers (unicast), multicast is unnecessary and you change to false -->
       <AllowMulticast>true</AllowMulticast>
     </General>
+
   </Domain>
 </CycloneDDS>

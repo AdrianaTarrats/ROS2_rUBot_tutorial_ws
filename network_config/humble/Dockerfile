@@ -72,8 +72,7 @@ RUN set -eux; \
 #RUN pip3 install --no-cache-dir ultralytics "numpy<1.24"
 
 # Default ROS 2 environment in bashrc
-RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc \
-    && echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> /root/.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc 
 
 # Keep container alive with an interactive shell
 CMD ["bash"]

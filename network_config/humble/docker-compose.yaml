@@ -15,9 +15,12 @@ services:
       - ROS_DOMAIN_ID=1 # ⚠️ numero del grup/robot (1,2,3,4)
       - ROS_LOCALHOST_ONLY=0
 
-      # --- Robust pair-only networking ---
-      - ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
-      - ROS_STATIC_PEERS=192.168.1.14   # ⚠️ IP del robot (14,24,34,44)
+      # Home: Simulation
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET
+      # (DO NOT set ROS_STATIC_PEERS at home)
+      # Lab: connection with rUBot
+      #- ROS_AUTOMATIC_DISCOVERY_RANGE=OFF
+      #- ROS_STATIC_PEERS=192.168.1.14   # ⚠️ rUBot IP (14,24,34,44)
 
       # CycloneDDS XML (PC side)
       - CYCLONEDDS_URI=file:///config/cyclonedds_pc.xml

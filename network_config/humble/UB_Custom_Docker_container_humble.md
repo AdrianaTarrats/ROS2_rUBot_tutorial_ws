@@ -9,23 +9,31 @@ A proper Docker Image has been created with the custom configuration on Dockerfi
 - Open VScode in a working directory (e.g., `~/Desktop/rob/`) on your Host PC.
     - Install the `Docker` and `Remote Development` extensions from the VScode marketplace.
     - Clone your forked repository `ROS2_rUBot_tutorial`
-- In `~/ROS2_rUBot_tutorial/network_config/humble` review on:
+- In `~/ROS2_rUBot_tutorial/network_config/humble` review in function of Home or Laboratory case, on:
     - `docker-compose.yaml` file: 
         - `ROS_DOMAIN_ID=1` variable to match your Group number.
-        - `ROS_STATIC_PEERS=192.168.1.14` variable to match your robot ID.
-    - `cyclonedds_pc.xml` file: verify `<NetworkInterface name="wlp1s0"/>`.
+        - `ROS_AUTOMATIC_DISCOVERY_RANGE` SUBNET or OFF depending on Home or Lab use.
+        - `ROS_STATIC_PEERS` not set or set with IP to match your robot IP.
+    - `cyclonedds_pc.xml` file: 
+        - `NetworkInterface`: not specified.
+        - `AllowMulticast` true or false depending on Home or Lab use.
 - Open a terminal in `~/ROS2_rUBot_tutorial/network_config/humble` and run:
     ````bash
     xhost +local:root            # allow X11 for Docker (lab use only)
-    docker compose up -d
+    docker compose up
     ````
 - Verify the environment variables are correctly set by checking the container startup output.
 - In Host VScode you can `attach VScode`. You can also connect with container typing:
     ```bash
     docker exec -it pc_humble bash
-    code .                     # open VSCode inside the container
+    code .  # to open VSCode inside the container
     ```
-- Verify the `ROS_DOMAIN_ID` in container .bashrc
+- Verify in container **.bashrc** to have:
+    ```bash
+    source /opt/ros/humble/setup.bash
+    source ~/ROS2_rUBot_tutorial_ws/install/setup.bash
+    cd ~/ROS2_rUBot_tutorial_ws
+    ```
 
 You are ready to work inside the container and to connect to the robot hardware within ROS2 Humble on Docker!
 
