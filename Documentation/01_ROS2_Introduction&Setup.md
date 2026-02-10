@@ -68,7 +68,7 @@ To work properly in ROS environment, you can:
 
 We have designed a University of Barcelona custom Docker-based ROS 2 Humble environment to simplify student access to ROS 2 and ensure platform-independent workflows in robotics courses.
 
-The installation details are described on: [UB custom ROS2 Humble environment](https://github.com/manelpuig/my_rUBot_mecanum/blob/humble/network_config/humble/Custom_Docker_container_humble.md)
+The installation details are described on: [UB custom ROS2 Humble environment](https://github.com/manelpuig/ROS2_rUBot_tutorial_ws/blob/main/network_config/humble/UB_Custom_Docker_container_humble.md)
 ### "The Construct" ROS environment
 
 Is recommended for fast and reliable use:
