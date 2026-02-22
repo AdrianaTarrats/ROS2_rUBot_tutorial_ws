@@ -38,7 +38,7 @@ class MoveTurtle(Node):
             cmd.angular.z = 0.0
 
             if not self.stopped:
-                self.get_logger().info("Stopping turtle at position x={msg.x:.2f}, y={msg.y:.2f}")
+                self.get_logger().info(f"Stopping turtle at position x={msg.x:.2f}, y={msg.y:.2f}")
                 self.stopped = True
         else:
             cmd.linear.x = 0.5
